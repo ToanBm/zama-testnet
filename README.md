@@ -119,9 +119,11 @@ export default config;
 ```
 ### Set .env file
 ```
+nano .env
+```
+```
 PRIVATE_KEY=your-private-key
 SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
-ETHERSCAN_API_KEY=your-api-key
 ZAMA_RPC_URL=https://fhevm-testnet.zama.ai
 ```
 ### Verify your wallet
