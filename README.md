@@ -56,7 +56,7 @@ const ETHERSCAN_API_KEY: string = process.env.ETHERSCAN_API_KEY || "";
 if (!SEPOLIA_RPC_URL) {
   throw new Error("SEPOLIA_RPC_URL is not set in .env file");
 }
-if (!PRIVATE_KEY) {
+if (process.env.HARDHAT_TARGET === "deploy" && !PRIVATE_KEY) {
   throw new Error("PRIVATE_KEY is not set in .env file");
 }
 
@@ -125,17 +125,13 @@ nano .env
 SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
 ZAMA_RPC_URL=https://fhevm-testnet.zama.ai
 ```
-### Verify your wallet
-```
-npx hardhat accounts --network sepolia
-```
 #### Compile
 ```
 npx hardhat compile
 ```
 ### Deploy
 ```
-read -s -p "🔑 Enter your private key: " PK && echo && PRIVATE_KEY=$PK npx hardhat run scripts/deploy.ts --network sepolia
+read -p "🔑 Enter your private key: " PK && echo && PRIVATE_KEY=$PK npx hardhat run deploy/deploy.ts --network sepolia
 ```
 
 
