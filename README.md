@@ -122,7 +122,6 @@ export default config;
 nano .env
 ```
 ```
-PRIVATE_KEY=your-private-key
 SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
 ZAMA_RPC_URL=https://fhevm-testnet.zama.ai
 ```
@@ -136,7 +135,7 @@ npx hardhat compile
 ```
 ### Deploy
 ```
-npx hardhat deploy --network sepolia
+read -s -p "🔑 Enter your private key: " PK && echo && PRIVATE_KEY=$PK npx hardhat run scripts/deploy.ts --network sepolia
 ```
 
 
